@@ -1,0 +1,167 @@
+.dashboard-container {
+    font-family: "Poppins", sans-serif;
+    color: #222;
+    background: #fff;
+    padding: 20px;
+  }
+  
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .dashboard-header nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+  }
+  
+  .dashboard-header nav a.active {
+    color: #2cb1ff;
+  }
+  
+  .dashboard-header .icons i {
+    margin-left: 15px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  /* Top Section */
+  .top-section {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 20px;
+    flex: 1;
+    min-width: 250px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .asset-card h2 {
+    font-size: 28px;
+    margin: 10px 0;
+  }
+  
+  /* Split Bill */
+  .split-card {
+    text-align: center;
+  }
+  
+  .split-card .circle {
+    width: 100px;
+    height: 100px;
+    border: 8px solid #2cb1ff;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .split-card .percent {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2cb1ff;
+  }
+  
+  .detail-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #2cb1ff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  /* Categories */
+  .category-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    flex-wrap: wrap;
+  }
+  
+  .category {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 5px;
+    font-weight: 500;
+    color: #fff;
+  }
+  
+  .yellow { background: #f6c233; }
+  .purple { background: #7b5fe0; }
+  .green  { background: #4bbf73; }
+  .orange { background: #ffa851; }
+  .blue   { background: #6ca6f8; }
+  
+  /* Bottom Section */
+  .bottom-section {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .mycards, .earnings {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .bank-card {
+    background: linear-gradient(90deg, #ffd7b5, #ff914d);
+    color: #000;
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 10px;
+  }
+  
+  .bar-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 200px;
+    margin-top: 20px;
+  }
+  
+  .bar {
+    width: 40%;
+    text-align: center;
+  }
+  
+  .bar-value {
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 6px;
+  }
+  
+  .income-bar .bar-value {
+    background: #aef5af;
+  }
+  
+  .expense-bar .bar-value {
+    background: #ffb4b4;
+  }
+  
+  @media (max-width: 768px) {
+    .top-section, .bottom-section, .category-section {
+      flex-direction: column;
+    }
+  }
+  
