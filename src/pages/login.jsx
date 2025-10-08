@@ -37,6 +37,7 @@ export default function Login() {
 
         if (data.success) {
           localStorage.setItem("userEmail", data.email);
+          //post api dari OTP
           navigate("/otpLogin");
         } else {
           setMessage("❌ Invalid credentials. Please try again.");

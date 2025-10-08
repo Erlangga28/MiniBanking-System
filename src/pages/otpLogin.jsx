@@ -44,6 +44,8 @@ export default function InputEmail() {
 
         await new Promise((resolve) => setTimeout(resolve, 1000)); // delay simulasi
 
+        //if data.otp === input form otp => dashboard
+
         if (otp === "123456") {
           setMessage("✅ OTP Verified (Simulation Mode)!");
           setTimeout(() => navigate("/dashboard"), 1000);
