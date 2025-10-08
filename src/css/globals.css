@@ -19,10 +19,6 @@
     font-weight: bold;
   }
   
-  .dashboard-header nav a {
-      
-  }
-  
   .dashboard-header nav a.active {
     color: #2cb1ff;
   }

@@ -1,12 +1,5 @@
 /* === Global Styling === */
-body {
-    background-color: #3b8d9e;
-    height: 100vh;
-    /* display: flex; */
-    /* justify-content: center; */
-    align-items: center;
-    font-family: "Poppins", sans-serif;
-  }
+
   
   /* === Card Container === */
   .login-card {
