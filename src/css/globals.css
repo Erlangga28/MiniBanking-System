@@ -7,10 +7,11 @@
   
   .dashboard-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #eee;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #39a3b2;
+      color: black;
+      padding: 10px 20px;
   }
   
   .dashboard-header h1 {
@@ -19,10 +20,7 @@
   }
   
   .dashboard-header nav a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #444;
-    font-weight: 500;
+      
   }
   
   .dashboard-header nav a.active {
@@ -44,12 +42,9 @@
   }
   
   .card {
-    background: #f9f9f9;
-    border-radius: 12px;
-    padding: 20px;
-    flex: 1;
-    min-width: 250px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    background-color: #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   .asset-card h2 {
@@ -60,6 +55,8 @@
   /* Split Bill */
   .split-card {
     text-align: center;
+    
+    
   }
   
   .split-card .circle {
@@ -77,6 +74,10 @@
     font-size: 22px;
     font-weight: bold;
     color: #2cb1ff;
+  }
+
+  .split-card .description{
+    font-size: 14px;
   }
   
   .detail-link {

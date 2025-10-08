@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import "../css/globals.css";
 
+
 const Dashboard = () => {
   const [assets, setAssets] = useState(17580062);
   const [income, setIncome] = useState(17580062);
@@ -28,41 +29,44 @@ const Dashboard = () => {
       </header>
 
       {/* Top Section */}
+      
       <div className="top-section">
-        <div className="card asset-card">
+        <button className="card asset-card">
           <h3>Assets Total</h3>
           <h2>Rp{assets.toLocaleString("id-ID")}</h2>
           <p>You made extra Rp20.000 this month</p>
-        </div>
+        </button>
+      
 
-        <div className="card income-expense-card">
+        <button className="card income-expense-card">
           <h4>Income & Expenses</h4>
           <div className="info-row">
-            <p className="income">+ Rp{income.toLocaleString("id-ID")}</p>
+            <p className="income"> <span><i class="bi bi-pie-chart"></i></span>+ Rp{income.toLocaleString("id-ID")}</p>
             <span>Total income this month</span>
           </div>
           <div className="info-row">
-            <p className="expense">- Rp{expenses.toLocaleString("id-ID")}</p>
+            <p className="expense"> <span><i class="bi bi-pie-chart"></i></span>- Rp{expenses.toLocaleString("id-ID")}</p>
             <span>Total expenses this month</span>
           </div>
           <div className="info-row">
-            <p className="income">+ Rp{income.toLocaleString("id-ID")}</p>
+            <p className="income"><span><i class="bi bi-pie-chart"></i></span>+ Rp{income.toLocaleString("id-ID")}</p>
             <span>Total receivable this month</span>
           </div>
-        </div>
-
-        <div className="card split-card">
+        </button>
+      
+        <button className="card split-card">
           <h4>Split Bill</h4>
           <div className="circle">
+            
             <div className="percent">{splitProgress}%</div>
           </div>
-          <p>
+          <button className="description">
             There are 4 ongoing split bills<br />
             Remaining bill: Rp2.000.000<br />
             Potential asset: Rp32.580.062
-          </p>
+          </button>
           <a href="#" className="detail-link">View Detail</a>
-        </div>
+        </button>
       </div>
 
       {/* Middle Section */}
