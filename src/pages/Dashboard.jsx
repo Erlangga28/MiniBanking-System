@@ -80,7 +80,7 @@ const Dashboard = () => {
 
       {/* Bottom Section */}
       <div className="bottom-section">
-        <div className="mycards">
+        <button className="mycards" href="/CardSection">
           <h3>My Cards</h3>
           <div className="card-info">
             <p>3 Active Cards</p>
@@ -93,7 +93,7 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-        </div>
+        </button>
 
         <div className="earnings">
           <h3>Earnings Overview</h3>

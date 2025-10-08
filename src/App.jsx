@@ -2,6 +2,8 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/login";
 import Dashboard from "./pages/Dashboard";
+import CardSection from "./pages/CardSection.jsx";
+
 
 
 export default function App() {
@@ -9,6 +11,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/CardSection" element={<CardSection />} />
     </Routes>
   );
 }

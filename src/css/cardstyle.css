@@ -1,0 +1,73 @@
+.card-section {
+    position: absolute;
+    top: 200px;
+    left: 63px;
+    width: 477px;
+    height: 161px;
+    font-family: "Poppins", Helvetica, sans-serif;
+  }
+  
+  .card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 469px;
+    height: 161px;
+    border-radius: 10px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 166, 105, 1) 100%
+    );
+    box-shadow: 0px 4px 4px #00000040;
+  }
+  
+  .card-bank {
+    position: absolute;
+    top: 13px;
+    left: 22px;
+    font-weight: 400;
+    font-size: 12px;
+    color: #000;
+  }
+  
+  .card-holder {
+    position: absolute;
+    top: 49px;
+    left: 22px;
+    font-weight: 400;
+    font-size: 12px;
+    color: #000;
+  }
+  
+  .card-type {
+    position: absolute;
+    top: 132px;
+    left: 22px;
+    font-weight: 400;
+    font-size: 12px;
+    color: #000;
+  }
+  
+  .card-number {
+    position: absolute;
+    top: 31px;
+    left: 22px;
+    font-weight: 700;
+    font-size: 12px;
+    color: #000;
+  }
+  
+  .btn-eye {
+    position: absolute;
+    top: 30px;
+    left: 146px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #000;
+    font-size: 14px;
+  }
+  
