@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import "../css/globals.css";
 
 export default function Dashboard() {
@@ -80,9 +81,9 @@ export default function Dashboard() {
           <a href="#">Menu 2</a>
         </nav>
         <div className="icons">
-          <i className="bi bi-gear"></i>
-          <i className="bi bi-bell"></i>
-          <i className="bi bi-person"></i>
+          <i href="#" className="bi bi-gear"></i>
+          <i href="#" className="bi bi-bell"></i>
+          <i href="#" className="bi bi-person"></i>
         </div>
       </header>
 
@@ -140,25 +141,27 @@ export default function Dashboard() {
         <div className="category blue">Other<br />Rp 15.000.000</div>
       </div>
 
-      {/* Bottom Section */}
-      <div className="bottom-section">
-        <div className="mycards">
-          <h3>My Cards</h3>
-          <div className="slider-wrapper">
-            <button className="slider-btn left" onClick={() => sliderRef.current.scrollBy({ left: -sliderRef.current.offsetWidth, behavior: 'smooth' })}>&lt;</button>
-            <div className="card-slider" ref={sliderRef}>
-              {cards.map((card, idx) => (
-                <div className="bank-card" key={idx}>
-                  <h5>{card.name.toUpperCase()}</h5>
-                  <p>12345678910</p>
-                  <p>Effective balance</p>
-                  <h4>Rp{card.balance.toLocaleString("id-ID")}</h4>
-                </div>
-              ))}
+        {/* Bottom Section */}
+        <div className="bottom-section">
+          <div className="mycards">
+            <h3>My Cards</h3>
+            <div className="slider-wrapper">
+              <button className="slider-btn left" onClick={() => sliderRef.current.scrollBy({ left: -sliderRef.current.offsetWidth, behavior: 'smooth' })}>&lt;</button>
+              <div className="card-slider" ref={sliderRef}>
+                {cards.map((card, idx) => (
+                  <Link to="/cardSection" key={idx} className="bank-card">
+                    <h5>{card.name.toUpperCase()}</h5>
+                    <p>12345678910</p>
+                    <p>Effective balance</p>
+                    <h4>Rp{card.balance.toLocaleString("id-ID")}</h4>
+                  </Link>
+                ))}
+              </div>
+              <button className="slider-btn right" onClick={() => sliderRef.current.scrollBy({ left: sliderRef.current.offsetWidth, behavior: 'smooth' })}>&gt;</button>
             </div>
-            <button className="slider-btn right" onClick={() => sliderRef.current.scrollBy({ left: sliderRef.current.offsetWidth, behavior: 'smooth' })}>&gt;</button>
           </div>
-        </div>
+        
+
 
 
         {/* Earnings Overview */}

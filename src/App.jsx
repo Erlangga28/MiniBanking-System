@@ -1,5 +1,6 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/login";
 import Dashboard from "./pages/Dashboard";
 import CardSection from "./pages/CardSection";
