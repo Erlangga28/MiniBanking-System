@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import "../css/cardstyle.css";
 import { EyeOff, Eye, Settings, Bell, User, Filter } from "lucide-react";
 
-export default function Dashboard() {
+export default function MyCards() {
   const [showCardNumber, setShowCardNumber] = useState(false);
   const toggleCardNumber = () => setShowCardNumber(!showCardNumber);
 
   return (
     <div className="dashboard-container">
-      {/* Header */}
       <header className="dashboard-header">
         <h1 className="logo">Wandoor</h1>
         <div className="icons">
@@ -41,12 +40,10 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* Warning Box */}
           <div className="warning-box">
-            ⚠️ Jangan bagikan nomor kartu, tanggal kadaluarsa, dan kode CVV/CVC ke siapa pun, termasuk pihak BNI.
+            ⚠️ Jangan bagikan nomor kartu, tanggal kadaluarsa, dan kode CVV/CVC ke siapa pun.
           </div>
 
-          {/* Earnings Overview */}
           <div className="earnings-box">
             <h3>Earnings Overview</h3>
             <div className="earnings-content">
@@ -73,6 +70,7 @@ export default function Dashboard() {
             <h2>Transaction History</h2>
             <Filter className="filter-icon" />
           </div>
+
           <div className="month-tabs">
             {[
               "May", "June", "July", "Aug", "Sept", "Oct",
@@ -91,29 +89,6 @@ export default function Dashboard() {
               <p>Warung Kak Ros</p>
               <div className="amount negative">-Rp25.000</div>
               <span className="split">Split bill</span>
-            </div>
-            <div className="transaction-item">
-              <span>QRIS</span>
-              <p>Warung Kak Udin</p>
-              <div className="amount negative">-Rp25.000</div>
-              <span className="split active">Split bill?</span>
-            </div>
-
-            <div className="date">30 May 2025</div>
-            <div className="transaction-item">
-              <span>Transfer</span>
-              <p>BNI - Gajian uhuy</p>
-              <div className="amount positive">+Rp50.000.000</div>
-            </div>
-            <div className="transaction-item">
-              <span>E-Wallet</span>
-              <p>Top Up Ovo - 0123456789</p>
-              <div className="amount negative">-Rp25.000</div>
-            </div>
-            <div className="transaction-item">
-              <span>QRIS</span>
-              <p>Warung Kak Ros</p>
-              <div className="amount negative">-Rp25.000</div>
             </div>
           </div>
         </section>

@@ -1,15 +1,73 @@
-"use client";
-
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../css/globals.css";
 
+export default function Dashboard() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL; // dari .env
+  const sliderRef = useRef(null);
 
-const Dashboard = () => {
-  const [assets, setAssets] = useState(17580062);
-  const [income, setIncome] = useState(17580062);
-  const [expenses, setExpenses] = useState(10580062);
-  const [splitProgress, setSplitProgress] = useState(100);
-  const [activeCard, setActiveCard] = useState(1);
+  useEffect(() => {
+    let userId = localStorage.getItem("userId");
+    const token = localStorage.getItem("token");
+
+    if (!userId) {
+      userId = "dummyUser123";
+      localStorage.setItem("userId", userId);
+    }
+
+    const fetchData = async () => {
+      try {
+        if (API_BASE_URL) {
+          const response = await fetch(`${API_BASE_URL}/api/dashboard?userId=${userId}`, {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+          if (!response.ok) throw new Error("API error");
+          const result = await response.json();
+          setData(result);
+        } else {
+          setData({
+            name: "User Simulasi",
+            assets: 17580062,
+            income: 17580062,
+            expenses: 10580062,
+            splitProgress: 75,
+            cards: [
+              { name: "Taplus Bisnis", balance: 50000000 },
+              { name: "Taplus Muda", balance: 20000000 },
+            ],
+          });
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setData({
+          name: "Offline Mode",
+          assets: 10000000,
+          income: 8000000,
+          expenses: 3000000,
+          splitProgress: 60,
+          cards: [],
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) return <p>Loading dashboard...</p>;
+  if (!data) return <p>No data found</p>;
+
+  const { assets, income, expenses, splitProgress, cards } = data;
+
+  const scrollLeft = () => {
+    sliderRef.current.scrollBy({ left: -260, behavior: "smooth" });
+  };
+
+  const scrollRight = () => {
+    sliderRef.current.scrollBy({ left: 260, behavior: "smooth" });
+  };
 
   return (
     <div className="dashboard-container">
@@ -29,44 +87,48 @@ const Dashboard = () => {
       </header>
 
       {/* Top Section */}
-      
       <div className="top-section">
-        <button className="card asset-card">
+        <div className="card asset-card">
           <h3>Assets Total</h3>
           <h2>Rp{assets.toLocaleString("id-ID")}</h2>
           <p>You made extra Rp20.000 this month</p>
-        </button>
-      
+        </div>
 
-        <button className="card income-expense-card">
+        <div className="card income-expense-card">
           <h4>Income & Expenses</h4>
           <div className="info-row">
-            <p className="income"> <span><i class="bi bi-pie-chart"></i></span>+ Rp{income.toLocaleString("id-ID")}</p>
+            <p className="income">
+              <span><i className="bi bi-pie-chart"></i></span>
+              + Rp{income.toLocaleString("id-ID")}
+            </p>
             <span>Total income this month</span>
           </div>
           <div className="info-row">
-            <p className="expense"> <span><i class="bi bi-pie-chart"></i></span>- Rp{expenses.toLocaleString("id-ID")}</p>
+            <p className="expense">
+              <span><i className="bi bi-pie-chart"></i></span>
+              - Rp{expenses.toLocaleString("id-ID")}
+            </p>
             <span>Total expenses this month</span>
           </div>
-          <div className="info-row">
-            <p className="income"><span><i class="bi bi-pie-chart"></i></span>+ Rp{income.toLocaleString("id-ID")}</p>
-            <span>Total receivable this month</span>
-          </div>
-        </button>
-      
-        <button className="card split-card">
+        </div>
+
+        <div className="card split-card">
           <h4>Split Bill</h4>
-          <div className="circle">
-            
+          <div
+            className="circle"
+            style={{
+              background: `conic-gradient(#2cb1ff ${splitProgress * 3.6}deg, #ddd 0deg)`
+            }}
+          >
             <div className="percent">{splitProgress}%</div>
           </div>
-          <button className="description">
+          <div className="description">
             There are 4 ongoing split bills<br />
             Remaining bill: Rp2.000.000<br />
             Potential asset: Rp32.580.062
-          </button>
+          </div>
           <a href="#" className="detail-link">View Detail</a>
-        </button>
+        </div>
       </div>
 
       {/* Middle Section */}
@@ -75,37 +137,52 @@ const Dashboard = () => {
         <div className="category purple">Savings<br />Rp 15.000.000</div>
         <div className="category green">Life Goals<br />Rp 15.000.000</div>
         <div className="category orange">DPLK<br />Rp 15.000.000</div>
-        <div className="category blue">APA YAAA?<br />Rp 15.000.000</div>
+        <div className="category blue">Other<br />Rp 15.000.000</div>
       </div>
 
       {/* Bottom Section */}
       <div className="bottom-section">
-        <a href="./CardSection" className="mycards">
+        <div className="mycards">
           <h3>My Cards</h3>
-          <div className="card-info">
-            <p>3 Active Cards</p>
-            <div className="card-slide">
-              <div className="bank-card">
-                <h5>TAPLUS BISNIS</h5>
-                <p>12345678910</p>
-                <p>Effective balance</p>
-                <h4>Rp50.000.000.000</h4>
-              </div>
+          <div className="slider-wrapper">
+            <button className="slider-btn left" onClick={() => sliderRef.current.scrollBy({ left: -sliderRef.current.offsetWidth, behavior: 'smooth' })}>&lt;</button>
+            <div className="card-slider" ref={sliderRef}>
+              {cards.map((card, idx) => (
+                <div className="bank-card" key={idx}>
+                  <h5>{card.name.toUpperCase()}</h5>
+                  <p>12345678910</p>
+                  <p>Effective balance</p>
+                  <h4>Rp{card.balance.toLocaleString("id-ID")}</h4>
+                </div>
+              ))}
             </div>
+            <button className="slider-btn right" onClick={() => sliderRef.current.scrollBy({ left: sliderRef.current.offsetWidth, behavior: 'smooth' })}>&gt;</button>
           </div>
-        </a>
+        </div>
 
+
+        {/* Earnings Overview */}
         <div className="earnings">
           <h3>Earnings Overview</h3>
           <div className="bar-container">
             <div className="bar income-bar">
               <span>Income</span>
-              <div className="bar-value" style={{ height: "80%" }}></div>
+              <div
+                className="bar-value"
+                style={{
+                  "--bar-height": `${Math.min((income / (income + expenses)) * 100, 100)}%`
+                }}
+              ></div>
               <p>Rp{income.toLocaleString("id-ID")}</p>
             </div>
             <div className="bar expense-bar">
               <span>Expenses</span>
-              <div className="bar-value" style={{ height: "50%" }}></div>
+              <div
+                className="bar-value"
+                style={{
+                  "--bar-height": `${Math.min((expenses / (income + expenses)) * 100, 100)}%`
+                }}
+              ></div>
               <p>Rp{expenses.toLocaleString("id-ID")}</p>
             </div>
           </div>
@@ -113,6 +190,4 @@ const Dashboard = () => {
       </div>
     </div>
   );
-};
-
-export default Dashboard;
+}
