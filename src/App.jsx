@@ -5,10 +5,7 @@ import Login from "./pages/login";
 import Dashboard from "./pages/Dashboard";
 import CardSection from "./pages/CardSection";
 import InputEmail from "./pages/otpLogin";
-
-
-
-
+import DetailFitur from "./pages/DetailFitur";
 
 export default function App() {
   return (
@@ -17,6 +14,7 @@ export default function App() {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/cardSection" element={<CardSection />} />
       <Route path="/otpLogin" element={<InputEmail />} />
+      <Route path="/detailfitur" element={<DetailFitur />} />
     </Routes>
   );
 }
