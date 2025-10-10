@@ -53,9 +53,7 @@ export default function Login() {
         ];
 
         // Cek apakah userId dan password cocok
-        const user = dummyUsers.find(
-          (u) => u.userId === userId && u.password === password
-        );
+        const user = dummyUsers.find((u) => u.userId === userId && u.password === password);
 
         await new Promise((resolve) => setTimeout(resolve, 1000)); // delay simulasi
         setLoading(false);
@@ -104,16 +102,9 @@ export default function Login() {
           {/* User ID */}
           <div className="input-group mb-3">
             <span className="input-group-text">
-              <i className="bi bi-person-fill"></i>
+              <i className="bi bi-person-circle"></i>
             </span>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="User ID"
-              value={userId}
-              onChange={(e) => setUserId(e.target.value)}
-              required
-            />
+            <input type="text" className="form-control" placeholder="User ID" value={userId} onChange={(e) => setUserId(e.target.value)} required />
           </div>
 
           {/* Password */}
@@ -121,21 +112,13 @@ export default function Login() {
             <span className="input-group-text">
               <i className="bi bi-lock-fill"></i>
             </span>
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            <input type="password" className="form-control" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            <span className="input-group-text">
+              <i className="bi bi-eye"></i>
+            </span>
           </div>
 
-          <button
-            type="submit"
-            className="btn btn-login w-100"
-            disabled={loading}
-          >
+          <button type="submit" className="btn btn-login w-100" disabled={loading}>
             {loading ? "Logging in..." : "Login"}
           </button>
         </form>
@@ -153,10 +136,7 @@ export default function Login() {
           </p>
         )}
 
-        <div
-          className="login-footer"
-          style={{ textAlign: "center", marginTop: "20px" }}
-        >
+        <div className="login-footer" style={{ textAlign: "center", marginTop: "20px" }}>
           <p>
             Forgot your password? <a href="#">Reset here</a>
           </p>
