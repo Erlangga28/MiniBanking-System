@@ -80,9 +80,11 @@ export default function Dashboard() {
     <div className="dashboard-container">
       {/* Header */}
       <header className="dashboard-header">
-        <h1>Wonder</h1>
+        <h1>Wandoor</h1>
         <nav>
-          <a href="#" className="active">Dashboard</a>
+          <a href="#" className="active">
+            Dashboard
+          </a>
           <a href="#">Menu 1</a>
           <a href="#">Menu 2</a>
         </nav>
@@ -96,23 +98,31 @@ export default function Dashboard() {
       {/* Top Section */}
       <div className="top-section">
         <div className="card asset-card">
-          <h3>Assets Total</h3>
+          <h3>
+            <b>Assets Total</b>
+          </h3>
           <h2>Rp{assets.toLocaleString("id-ID")}</h2>
           <p>You made extra Rp20.000 this month</p>
         </div>
 
         <div className="card income-expense-card">
-          <h4>Income & Expenses</h4>
+          <h4>
+            <b>Income & Expenses</b>
+          </h4>
           <div className="info-row">
             <p className="income">
-              <span><i className="bi bi-pie-chart"></i></span>
+              <span>
+                <i className="bi bi-pie-chart"></i>
+              </span>
               + Rp{income.toLocaleString("id-ID")}
             </p>
             <span>Total income this month</span>
           </div>
           <div className="info-row">
             <p className="expense">
-              <span><i className="bi bi-pie-chart"></i></span>
+              <span>
+                <i className="bi bi-pie-chart"></i>
+              </span>
               - Rp{expenses.toLocaleString("id-ID")}
             </p>
             <span>Total expenses this month</span>
@@ -120,7 +130,9 @@ export default function Dashboard() {
         </div>
 
         <div className="card split-card">
-          <h4>Split Bill</h4>
+          <h4>
+            <b>Split Bill</b>
+          </h4>
           <div
             className="circle"
             style={{
@@ -130,54 +142,48 @@ export default function Dashboard() {
             <div className="percent">{splitProgress}%</div>
           </div>
           <div className="description">
-            There are 4 ongoing split bills<br />
-            Remaining bill: Rp2.000.000<br />
+            There are 4 ongoing split bills
+            <br />
+            Remaining bill: Rp2.000.000
+            <br />
             Potential asset: Rp32.580.062
           </div>
-          <a href="#" className="detail-link">View Detail</a>
+          <a href="#" className="detail-link">
+            View Detail
+          </a>
         </div>
       </div>
 
       {/* ✅ Middle Section — navigasi ke DetailFitur */}
       <div className="category-section">
-        <div
-          className="category yellow"
-          onClick={() => handleNavigate("deposit")}
-          style={{ cursor: "pointer" }}
-        >
-          Deposits<br />Rp 15.000.000
+        <div className="category yellow" onClick={() => handleNavigate("deposit")} style={{ cursor: "pointer" }}>
+          Deposits
+          <br />
+          Rp 15.000.000
         </div>
 
-        <div
-          className="category purple"
-          onClick={() => handleNavigate("savings")}
-          style={{ cursor: "pointer" }}
-        >
-          Savings<br />Rp 15.000.000
+        <div className="category purple" onClick={() => handleNavigate("savings")} style={{ cursor: "pointer" }}>
+          Savings
+          <br />
+          Rp 15.000.000
         </div>
 
-        <div
-          className="category green"
-          onClick={() => handleNavigate("lifegoals")}
-          style={{ cursor: "pointer" }}
-        >
-          Life Goals<br />Rp 15.000.000
+        <div className="category green" onClick={() => handleNavigate("lifegoals")} style={{ cursor: "pointer" }}>
+          Life Goals
+          <br />
+          Rp 15.000.000
         </div>
 
-        <div
-          className="category orange"
-          onClick={() => handleNavigate("dplk")}
-          style={{ cursor: "pointer" }}
-        >
-          DPLK<br />Rp 15.000.000
+        <div className="category orange" onClick={() => handleNavigate("dplk")} style={{ cursor: "pointer" }}>
+          DPLK
+          <br />
+          Rp 15.000.000
         </div>
 
-        <div
-          className="category blue"
-          onClick={() => handleNavigate("other")}
-          style={{ cursor: "pointer" }}
-        >
-          Other<br />Rp 15.000.000
+        <div className="category blue" onClick={() => handleNavigate("other")} style={{ cursor: "pointer" }}>
+          Other
+          <br />
+          Rp 15.000.000
         </div>
       </div>
 
@@ -186,10 +192,7 @@ export default function Dashboard() {
         <div className="mycards">
           <h3>My Cards</h3>
           <div className="slider-wrapper">
-            <button
-              className="slider-btn left"
-              onClick={scrollLeft}
-            >
+            <button className="slider-btn left" onClick={scrollLeft}>
               &lt;
             </button>
             <div className="card-slider" ref={sliderRef}>
@@ -202,10 +205,7 @@ export default function Dashboard() {
                 </Link>
               ))}
             </div>
-            <button
-              className="slider-btn right"
-              onClick={scrollRight}
-            >
+            <button className="slider-btn right" onClick={scrollRight}>
               &gt;
             </button>
           </div>
