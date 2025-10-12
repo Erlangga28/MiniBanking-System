@@ -71,7 +71,7 @@ export default function Dashboard() {
     sliderRef.current.scrollBy({ left: 260, behavior: "smooth" });
   };
 
-  // ✅ Fungsi navigate untuk pindah ke halaman detail
+  //Fungsi navigate untuk pindah ke halaman detail
   const handleNavigate = (section) => {
     navigate(`/detailfitur#${section}`);
   };
