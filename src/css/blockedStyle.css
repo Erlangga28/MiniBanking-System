@@ -1,11 +1,17 @@
 /* contoh file CSS — buat file ini kalau belum ada */
 .popup-block {
-    min-height: 100vh;
+    min-height: 832px;
+    min-width: 1280px;
+    border: 1px solid;
+    border-color: var(--colors-labels-vibrant-controls-primary);
     display: flex;
     justify-content: center;
+    overflow: hidden;
+    position: relative;
     align-items: center;
     background-color: #fff2f2;
     font-family: Arial, sans-serif;
+    width: 100%;
   }
   
   .popup-card {
