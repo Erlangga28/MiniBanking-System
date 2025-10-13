@@ -45,7 +45,7 @@ export default function Login() {
   };
 
   return (
-    <div className="main-bg login-container">
+    <div className="auth-background">
       <div className="login-box fade-in">
         <div className="logo">
           <i className="fas fa-door-open"></i>

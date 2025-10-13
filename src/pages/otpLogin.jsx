@@ -55,7 +55,7 @@ export default function OtpLogin() {
   };
 
   return (
-    <div className="main-bg otp-container">
+    <div className="auth-background">
       <div className="otp-box fade-in">
         <div className="logo">
           <i className="fas fa-door-open"></i>

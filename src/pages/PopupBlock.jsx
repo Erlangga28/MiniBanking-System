@@ -7,7 +7,7 @@ export default function PopupBlock() {
   const navigate = useNavigate();
 
   return (
-    <div className="main-bg block-container">
+    <div className="auth-background">
       <div className="block-box fade-in">
         <div className="logo">
           <i className="fas fa-door-open"></i>
