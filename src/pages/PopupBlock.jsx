@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/blockedStyle.css";
 
-export default function AccountBlocked() {
+export default function PopupBlock() {
   const navigate = useNavigate();
 
   return (

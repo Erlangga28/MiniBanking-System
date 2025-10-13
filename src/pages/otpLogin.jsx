@@ -6,9 +6,10 @@ export default function InputEmail() {
   const [otp, setOtp] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [attempts, setAttempts] = useState(0); // 🔹 Tambah state untuk menghitung jumlah percobaan
+
   const navigate = useNavigate();
 
-  // Ambil URL backend dari .env
   const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   const handleVerify = async () => {
@@ -22,7 +23,7 @@ export default function InputEmail() {
 
     try {
       if (API_BASE_URL) {
-        // 🟢 Mode Online: kirim ke backend
+        // 🟢 Mode Online
         const response = await fetch(`${API_BASE_URL}/api/verify-otp`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -36,21 +37,34 @@ export default function InputEmail() {
           setMessage("✅ OTP Verified!");
           setTimeout(() => navigate("/dashboard"), 1000);
         } else {
-          setMessage("❌ Invalid OTP, please try again.");
+          const newAttempts = attempts + 1;
+          setAttempts(newAttempts);
+
+          if (newAttempts >= 3) {
+            setMessage("🚫 Too many failed attempts. Redirecting...");
+            setTimeout(() => navigate("/popupblock"), 1500);
+          } else {
+            setMessage(`❌ Invalid OTP. Attempt ${newAttempts}/3.`);
+          }
         }
       } else {
-        // 🟠 Mode Simulasi (tanpa backend)
+        // 🟠 Mode Simulasi
         console.warn("⚙️ Running in SIMULATION MODE (no backend)");
-
-        await new Promise((resolve) => setTimeout(resolve, 1000)); // delay simulasi
-
-        //if data.otp === input form otp => dashboard
+        await new Promise((resolve) => setTimeout(resolve, 1000));
 
         if (otp === "123456") {
           setMessage("✅ OTP Verified (Simulation Mode)!");
           setTimeout(() => navigate("/dashboard"), 1000);
         } else {
-          setMessage("❌ Invalid OTP (Simulation Mode). Try '123456'.");
+          const newAttempts = attempts + 1;
+          setAttempts(newAttempts);
+
+          if (newAttempts >= 3) {
+            setMessage("🚫 Too many failed attempts. Redirecting...");
+            setTimeout(() => navigate("/popupblock"), 1500);
+          } else {
+            setMessage(`❌ Invalid OTP (Simulation Mode). Attempt ${newAttempts}/3.`);
+          }
         }
 
         setLoading(false);
@@ -76,7 +90,6 @@ export default function InputEmail() {
 
         <p className="text-wrapper-3">The Code OTP</p>
 
-        {/* Input OTP */}
         <div className="group">
           <input
             type="text"

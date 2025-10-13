@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import CardSection from "./pages/CardSection";
 import InputEmail from "./pages/otpLogin";
 import DetailFitur from "./pages/DetailFitur";
+import PopupBlock from "./pages/PopupBlock";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       <Route path="/cardSection" element={<CardSection />} />
       <Route path="/otpLogin" element={<InputEmail />} />
       <Route path="/detailfitur" element={<DetailFitur />} />
+      <Route path="/popupblock" element={<PopupBlock />} />
     </Routes>
   );
 }
