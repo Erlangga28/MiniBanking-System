@@ -2,13 +2,13 @@ import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
-import Login from "./pages/login";
+import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import LifeGoals from "./pages/LifeGoals";
 import LifeGoalDetail from "./pages/LifeGoalsDetail";
 import DepositsDashboard from "./pages/Deposit";
 import Profile from "./pages/Profile";
-import OtpLogin from "./pages/otpLogin";
+import OtpLogin from "./pages/OtpLogin";
 import PopupBlock from "./pages/PopupBlock";
 import CardSection from "./pages/CardSection"
 import DetailMyCard from "./pages/detailMyCard";
