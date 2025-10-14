@@ -1,22 +1,35 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+
 import Login from "./pages/login";
 import Dashboard from "./pages/Dashboard";
-import CardSection from "./pages/CardSection";
-import InputEmail from "./pages/otpLogin";
-import DetailFitur from "./pages/DetailFitur";
+import LifeGoals from "./pages/LifeGoals";
+import LifeGoalDetail from "./pages/LifeGoalsDetail";
+import DepositsDashboard from "./pages/Deposit";
+import Profile from "./pages/Profile";
+import OtpLogin from "./pages/otpLogin";
 import PopupBlock from "./pages/PopupBlock";
+import CardSection from "./pages/CardSection"
+import DetailMyCard from "./pages/detailMyCard";
 
-export default function App () {
+export default function App() {
+  const location = useLocation();
+
   return (
-    <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/cardSection" element={<CardSection />} />
-      <Route path="/otpLogin" element={<InputEmail />} />
-      <Route path="/detailfitur" element={<DetailFitur />} />
-      <Route path="/popupblock" element={<PopupBlock />} />
-    </Routes>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/lifegoals" element={<LifeGoals />} />
+        <Route path="/lifegoal/:id" element={<LifeGoalDetail />} />
+        <Route path="/deposits" element={<DepositsDashboard />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/otpLogin" element={<OtpLogin />} />
+        <Route path="/popupblock" element={<PopupBlock />} />
+        <Route path="/mycard" element={<CardSection />} />
+        <Route path="/detailmycard" element={<DetailMyCard />} />
+      </Routes>
+    </AnimatePresence>
   );
 }
